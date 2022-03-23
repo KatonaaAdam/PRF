@@ -1,0 +1,32 @@
+{
+  "name": "prf",
+  "version": "1.0.0",
+  "description": "webshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatonaaAdam/PRF.git"
+  },
+  "keywords": [
+    "shop",
+    "prf",
+    "2022"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KatonaaAdam/PRF/issues"
+  },
+  "homepage": "https://github.com/KatonaaAdam/PRF#readme",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1"
+  },
+  "scripts":{
+    "start":"node index.js"
+    }
+}
