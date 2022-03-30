@@ -2,9 +2,9 @@
   "name": "prf",
   "version": "1.0.0",
   "description": "webshop",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start":"node index",
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,10 +24,14 @@
   "homepage": "https://github.com/KatonaaAdam/PRF#readme",
   "dependencies": {
     "angular": "^1.8.2",
+    "body-parser": "^1.19.2",
+    "bulma": "^0.9.3",
     "express": "^4.17.3",
-    "mongodb": "^4.4.1"
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.9",
+    "cors": "^2.8.5"
   },
-  "engines":{
+  "engines": {
     "node": "14.17.6"
   }
 }
