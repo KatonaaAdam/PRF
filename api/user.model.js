@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt =require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 var userSchema= new mongoose.Schema({
     username:{type: String,unique:true, required:true,lowercase:true},
@@ -17,7 +17,7 @@ if(user.isModified('password')){
             console.log('Hiba a salt generálása során!');
             return next(err);
         }
-        bcrypt.hashSync(user.password,salt,function(err,hash){
+        bcrypt.hash(user.password,salt,function(err,hash){
             if(err){
                 console.log('Hiba a hash generálása során!');
                 return next(err);

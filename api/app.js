@@ -19,7 +19,8 @@ mongoose.connection.on('error',(err)=>{
   console.log('Hiba a db csatlakozasban',err);
 })
 
-require('./aru.model')
+require('./aru.model');
+require('./user.model');
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
