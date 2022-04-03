@@ -4,6 +4,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const passport = require('passport');
+const localStartegy = require('passport-local').Strategy;
+const expressSession = require('express-session');
+const { Passport } = require('passport/lib');
+
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -22,10 +27,40 @@ mongoose.connection.on('error',(err)=>{
 require('./aru.model');
 require('./user.model');
 
+const userModel =mongoose.model('user');
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({}));
+
 app.use(cors());
+
+passport.use('local', new localStartegy(function(username,password,done){
+  userModel.findOne({username: username},function(err,user){
+    if(err) return done ('Hiba lekérés során!', null);
+    if(!user) return done('Nincs ilyen felhasználó név!', null);
+    user.comparePassword(password,function(err,isMatch){
+      if(err) return done(err,false);
+      if(!isMatch) return done('Hibás jelszó!!!!');
+      return done(null,user);
+    })
+  })
+
+}));
+
+passport.serializeUser(function(user,done){
+  if(!user) return done('Nincs megadva beléptethető felhasználó!', null);
+  return done(null,user);
+})
+
+passport.deserializeUser(function(user,done){
+  if(!user) return done('Nincs felhasználó, akit kiléptethetnénk!', null);
+  return done(null,user);
+})
+
+app.use(expressSession({secret: 'prf2022webshopproject', resave: true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', (req, res, next) => {
   res.send('Hello World!')

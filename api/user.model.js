@@ -30,6 +30,12 @@ if(user.isModified('password')){
     return next();
 }
 
-})
+});
+
+userSchema.methods.comparePassword = function(password, nx){
+    bcrypt.compare(password, this.password, function(err, isMatch){
+        nx(err,isMatch);
+    });
+};
 
 mongoose.model('user',userSchema);

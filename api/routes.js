@@ -1,9 +1,47 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const passport = require('passport');
+//const localStartegy = require('passport-local').Strategy;
 
 const aurModel =mongoose.model('aru');
 const userModel =mongoose.model('user');
+
+router.route('/login').post((req,res,next)=>{
+    //user beléptetés
+    if(req.body.username, req.body.password){
+        passport.authenticate('local', function(err,user){
+            if(err) return res.status(500).send({err:err});
+            req.logIn(user, function(err){
+                if(err) return res.status(500).send({err:err});
+                return res.status(200).send('Sikeres bejelentkezés!');
+            })
+        })(req,res);
+    }else{
+        return res.status(400).send('Hibás kérés, a username és a password nem kell!');
+    }
+});
+
+router.route('/logout').post((req,res,next)=>{
+    //user kiléptetés
+    if(req.isAuthenticated()){
+        req.logout()
+        return res.status(200).send('Kijelentkezés sikeres!');
+    }else{
+        return res.status(403).send('Nem volt bejelentkezve a felhasználó!!!');
+    }
+});
+
+
+router.route('/status').get((req,res,next)=>{
+    //user kiléptetés
+    if(req.isAuthenticated()){
+        return res.status(200).send(req.session.passport);
+    }else{
+        return res.status(403).send('Nem volt bejelentkezve a felhasználó!!!');
+    }
+});
+
 
 router.route('/user').get((req,res,next)=>{
     //USER adatok lekérése
