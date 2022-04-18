@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  serverUrl :'https://prf-node-webshop-2022.herokuapp.com/'
+  serverUrl :'http://localhost:3000/'
 };
 
 /*
- * For easier debugging in development mode, you can import the following file
+ * For easier debugging in development mode, you can import the following file    serverUrl :'https://prf-node-webshop-2022.herokuapp.com/'
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
  * This import should be commented out in production mode because it will have a negative impact

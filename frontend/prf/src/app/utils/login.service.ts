@@ -10,10 +10,10 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   login(username: string, password: string){
-    return this.http.post(environment.serverUrl +'/login', {username:username,password:password},{responseType:'text'});
+    return this.http.post(environment.serverUrl +'login', {username:username,password:password},{responseType:'text'});
   }
 
   logout(){
-    return this.http.post(environment.serverUrl +'/logout', {},{withCredentials:true , responseType:'text'});
+    return this.http.post(environment.serverUrl +'logout', {},{withCredentials:true , responseType:'text'});
   }
 }

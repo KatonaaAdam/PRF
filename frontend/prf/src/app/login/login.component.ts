@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
    login(){
      if(this.username !='' && this.password!=''){
        this.loginService.login(this.username, this.password).subscribe(msg =>{
-         //console.log(msg);
+         console.log(msg);
          localStorage.setItem('user',this.username);
        },error=>{
          console.log(error);
