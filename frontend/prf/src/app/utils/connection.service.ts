@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
 
-  constructor() { }
+  constructor(private http : HttpClient) {}
 
   greet(){
-    console.log('greet method in connection.service :D');
+    return this.http.get(environment.serverUrl,{responseType:'text',withCredentials:true});
+   // console.log('greet method in connection.service :D');
   }
 }
