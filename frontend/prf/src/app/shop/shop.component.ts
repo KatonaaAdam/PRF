@@ -16,6 +16,10 @@ goToAbout(){
   this.router.navigate(['about']);
 }
 
+Logout(){
+  this.router.navigate(['login']);
+}
+
 
   ngOnInit(): void {
 

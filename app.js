@@ -33,7 +33,15 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({}));
 
-app.use(cors());
+const whiteList = ['http://localhost:4200']
+
+app.use(cors({origin: function(origin,callback){
+  if(whiteList.indexOf(origin)>=0){
+    callback(null,true);
+  }else{
+    callback(new Error('CORSE error!!!!'));
+  }
+},credentials:true,methods:"GET,PUT,POST,DELETE,OPTIONS"}));
 
 passport.use('local', new localStartegy(function(username,password,done){
   userModel.findOne({username: username},function(err,user){

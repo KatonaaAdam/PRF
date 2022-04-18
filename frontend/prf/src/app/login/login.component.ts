@@ -1,5 +1,6 @@
  import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../utils/login.service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,18 +16,20 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService ,private router:Router ) {
     this.username = '';
     this.password = '';
    }
 
    login(){
+    console.log(' username: '+ this.username + ',  pwd: '+this.password);
      if(this.username !='' && this.password!=''){
        this.loginService.login(this.username, this.password).subscribe(msg =>{
          console.log(msg);
          localStorage.setItem('user',this.username);
+         this.router.navigate(['/shop'])
        },error=>{
-         console.log(error);
+         console.log('login componentben: '+ error);
        })
        
      }
