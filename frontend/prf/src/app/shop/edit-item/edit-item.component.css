@@ -1,0 +1,26 @@
+.input-group-text{
+    min-width: 200px;
+}
+
+.input-group {
+    padding: 20px;
+}
+
+
+#creatbtn{
+color: aliceblue;
+    margin-top: 10px;
+    min-height: 50px;
+    min-width: 200px;
+    background-color:rgb(23, 23, 185);
+    border: rgb(23, 23, 185);
+  }
+
+  #backbtn{
+    color: aliceblue;
+    margin-top: 10px;
+    min-height: 50px;
+    min-width: 200px;
+    background-color:rgb(185, 23, 23);
+    border: rgb(185, 23, 23);
+  }

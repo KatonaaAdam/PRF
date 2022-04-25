@@ -1,11 +1,34 @@
 <div class="content" role="main">
   <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-    <span>Shop app is running!</span><!-- Template interpolation -->
-  </div>
+  
 
-  <button (click)="goToAbout()">About</button>
-  <button (click)="Logout()">Logout</button>
+
+  <table id="users">
+    <tr>
+      <th><h2>ID</h2></th>
+      <th><h2>NAME</h2></th>
+      <th><h2>PRICE</h2></th>
+      <th><h2>DESCRIPTION</h2></th>
+      <th><h2></h2></th>
+      <th *ngIf="isAdmin"><h2></h2></th>
+      <th *ngIf="isAdmin"><h2></h2></th>
+    </tr>
+    <ng-container *ngFor="let item of lista">
+        <tr>
+          <td><h3>{{item.id}}</h3></td>
+          <td><h3>{{item.name}}</h3></td>
+          <td><h3>{{item.price}}</h3></td>
+          <td><h3>{{item.desc}}</h3></td>
+          <td><button id="buybtn"  (click)="buyItem(item.name,item.price)" class="btn btn-primary">Buy</button></td>
+          <td *ngIf="isAdmin"><button id="deletebtn" (click)="deleteItem(item.id)" class="btn btn-primary">Delete</button></td>
+          <td *ngIf="isAdmin"><button id="editbtn"  (click)="goToEdit(item.id)" class="btn btn-primary">Edit</button></td>
+        </tr>
+    </ng-container>
+</table>
+
+  <button class="btn btn-primary" id="abaut" (click)="goToAbout()">About</button>
+  <button class="btn btn-primary" id="logout" (click)="Logout()">Logout</button>
+  <button *ngIf="isAdmin" class="btn btn-primary" id="newbtn" (click)="goToCreateNew()">Creat new</button>
 </div>
   
 

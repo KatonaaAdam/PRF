@@ -14,7 +14,7 @@ router.route('/login').post((req,res,next)=>{
             if(err) return res.status(500).send({err:err});
             req.logIn(user, function(err){
                 if(err) return res.status(500).send({err:err});
-                return res.status(200).send('Sikeres bejelentkezés!');
+                return res.status(200).send(user);
             })
         })(req,res);
     }else{
@@ -74,23 +74,30 @@ router.route('/user').get((req,res,next)=>{
 
 
 router.route('/webshop').get((req,res,next)=>{
-    //adatok lekérése
+    //adatok lekérése az edithez
+    if(req.params.id){
+        
+        aurModel.findOne({id: req.params.id}, (err,aru)=>{
+            if(err) return res.status(500).send('DB hiba');
+             res.status(200).send(aru);})
+    }else{
+//adatok lekérése a listázáshoz
     aurModel.find({}, (err,aru)=>{
         if(err) return res.status(500).send('DB hiba');
          res.status(200).send(aru);
-    })
+    })}
 }).post((req,res,next)=>{
     //adatok beszúrása
-    if(req.body.id && req.body.value){
+    if(req.body.id && req.body.name && req.body.price && req.body.desc){
         aurModel.findOne({id: req.body.id}, (err,aru)=>{
             if(err) return res.status(500).send('DB hiba');
             if(aru){
                 return res.status(400).send('Már van ilyen id!');
             } else{
-                const aru = new aurModel({id: req.body.id, value: req.body.value});
+                const aru = new aurModel({id: req.body.id,name: req.body.name, price: req.body.price, desc: req.body.desc});
                 aru.save((err)=>{
                     if(err) return res.status(500).send('A mentés hibás');
-                    return res.status(200).send('Siekres aru mentés')
+                    return res.status(200).send(aru)
                 })
             }
         })
@@ -102,7 +109,9 @@ router.route('/webshop').get((req,res,next)=>{
     aurModel.findOne({id: req.body.id}, (err,aru)=>{
         if(err) return res.status(500).send('DB hiba');
         if(aru){
-            aru.value = req.body.value;
+            aru.name = req.body.name;
+            aru.price = req.body.price;
+            aru.desc = req.body.desc;
             aru.save((err)=>{
                 if(err) return res.status(500).send('Frissítési hibás');
                 return res.status(200).send('Az áru adatai sikeresen frissítve!')
@@ -130,6 +139,20 @@ router.route('/webshop').get((req,res,next)=>{
     }
 })
 
+
+router.route('/edit/:id').get((req,res,next)=>{
+    //adatok lekérése az edithez
+    if(req.params.id){
+        aurModel.findOne({id: req.params.id}, (err,aru)=>{
+            if(err) return res.status(500).send('DB hiba');
+             res.status(200).send(aru);})
+    }else{
+//adatok lekérése a listázáshoz
+    aurModel.find({}, (err,aru)=>{
+        if(err) return res.status(500).send('DB hiba');
+         res.status(200).send(aru);
+    })}
+})
 
 
 module.exports=router;

@@ -1,15 +1,25 @@
 <div class="content" role="main">
-    <!-- Highlight Card -->
-    <div>
-      <span>Welcome to Login page!!!!</span><!-- Template interpolation -->
-      <label>Username:</label>
-      <input type="text" id="username"  [(ngModel)]= "username">
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" id="password"  [(ngModel)] = "password">
-      </div>
 
-      <button (click)="login()" >Login</button><!--(click)="login()"-->
-    
+ 
+
+    <h1 id="cim" class="display-4">Login page</h1>
+
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
+      <input type="text" id="username"  [(ngModel)]= "username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+      <input type="password" id="password"  [(ngModel)] = "password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+
+
+      <button (click)="login()" class="btn btn-primary" id="loginbtn">Login</button>
+
+      <button (click)="goToRegist()" class="btn btn-primary" id="registbtn">Registration</button>
+
   </div>
+

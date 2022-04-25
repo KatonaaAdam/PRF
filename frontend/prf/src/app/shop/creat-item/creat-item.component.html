@@ -1,0 +1,33 @@
+<div class="content" role="main">
+
+ 
+
+    <h1 id="cim" class="display-4">New Goods</h1>
+
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">ID</span>
+      <input type="text" id="id" [(ngModel)]= "id"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Name</span>
+        <input type="text" id="name" [(ngModel)]= "name"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Price</span>
+      <input type="text" id="price" [(ngModel)]= "price"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Description</span>
+        <input type="text" id="desc" [(ngModel)]= "desc"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+
+
+
+       <button (click)="addNewItem()"  class="btn btn-primary" id="creatbtn">Creat</button>
+       <button (click)="goToShop()"   class="btn btn-primary" id="backbtn">Back</button>
+
+  </div>

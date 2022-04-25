@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({}));
 
 const whiteList = ['http://localhost:4200']
-
+//app.use(cors());
 app.use(cors({origin: function(origin,callback){
   if(whiteList.indexOf(origin)>=0){
     callback(null,true);

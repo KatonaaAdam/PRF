@@ -1,0 +1,70 @@
+
+
+#abaut{
+    color: aliceblue;
+    margin-top: 10px;
+    min-height: 50px;
+    min-width: 200px;
+    background-color:rgb(236, 112, 55);
+    border-color: rgb(236, 112, 55);
+  }
+
+  #logout{
+    color: aliceblue;
+    margin-top: 10px;
+    min-height: 50px;
+    min-width: 200px;
+    background-color:rgb(185, 23, 23);
+    border-color: rgb(185, 23, 23);
+  }
+
+  #newbtn{
+    color: aliceblue;
+    margin-top: 10px;
+    min-height: 50px;
+    min-width: 200px;
+    background-color:rgb(23, 185, 90);
+    border-color: rgb(23, 185, 90);
+  }
+  #buybtn{
+    min-width: 100px;
+    min-height: 50px;
+    background-color: fuchsia;
+    border:fuchsia; ;
+  }
+
+  #deletebtn{
+    min-width: 100px;
+    min-height: 50px;
+    background-color: red;
+    border:red; ;
+  }
+  #editbtn{
+    min-width: 100px;
+    min-height: 50px;
+    background-color: blue;
+    border:blue; ;
+  }
+
+  #users {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #users td, #users th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #users tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #users tr:hover {background-color: #ddd;}
+  
+  #users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: blueviolet;
+    color: white;
+  }

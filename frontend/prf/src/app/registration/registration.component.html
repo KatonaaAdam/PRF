@@ -1,0 +1,30 @@
+<div class="content" role="main">
+
+ 
+
+    <h1 id="cim" class="display-4">Registration</h1>
+
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
+      <input type="text" id="username" [(ngModel)]= "username"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+        <input type="text" id="email" [(ngModel)]= "email"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+      <input type="password" id="password" [(ngModel)]= "password"   class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+   
+
+
+
+       <button (click)="registration()" class="btn btn-primary" id="creatbtn">Creat</button>
+       <button  (click)="goToLogin()" class="btn btn-primary" id="backbtn">Back</button>
+
+  </div>
