@@ -35,13 +35,21 @@ app.use(bodyParser.json({}));
 
 const whiteList = ['http://localhost:4200']
 //app.use(cors());
-app.use(cors({origin: function(origin,callback){
-  if(whiteList.indexOf(origin)>=0){
-    callback(null,true);
-  }else{
-    callback(new Error('CORSE error!!!!'));
-  }
-},credentials:true,methods:"GET,PUT,POST,DELETE,OPTIONS"}));
+// app.use(cors({origin: function(origin,callback){
+//   if(whiteList.indexOf(origin)>=0){
+//     callback(null,true);
+//   }else{
+//     callback(new Error('CORSE error!!!!'));
+//   }
+// },credentials:true,methods:"GET,PUT,POST,DELETE,OPTIONS"}));
+
+
+app.use(cors({
+  origin: [
+      "http://localhost:4200"
+  ], credentials: true
+}));
+
 
 passport.use('local', new localStartegy(function(username,password,done){
   userModel.findOne({username: username},function(err,user){

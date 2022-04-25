@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl :'http://localhost:3000/'
+  serverUrl :'https://prf-node-webshop-2022.herokuapp.com/'
 };
