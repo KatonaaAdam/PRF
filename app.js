@@ -79,7 +79,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res, next) => {
-  res.send('Hello World!')
+  res.send('PRF-2022')
 })
 
 app.use('/',require('./routes'));
