@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json({}));
 
-const whiteList = ['http://localhost:4200']
+const whiteList = ['http://localhost:4200',]
 //app.use(cors());
 // app.use(cors({origin: function(origin,callback){
 //   if(whiteList.indexOf(origin)>=0){
@@ -46,7 +46,7 @@ const whiteList = ['http://localhost:4200']
 
 app.use(cors({
   origin: [
-      "http://localhost:4200"
+      "http://localhost:4200","https://prf-2022.firebaseapp.com","https://prf-2022.web.app"
   ], credentials: true
 }));
 
